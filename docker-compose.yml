@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: mongo:5.0
+    container_name: review3-db
+    ports:
+      - 27017:27017
+    volumes:
+      - ./run/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=
+      - MONGO_INITDB_ROOT_PASSWORD=
+    networks:
+      review3:
+        aliases:
+          - db
+  api:
+    build: ./
+    ports: 
+      - 3000:3000
+    container_name: review3-api
+    environment: 
+      DATABASE_URI: mongodb://db:27017/review3
+    depends_on:
+      - db
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      review3:
+        aliases:
+          - api
+networks:
+  review3:
+    name: review3 
