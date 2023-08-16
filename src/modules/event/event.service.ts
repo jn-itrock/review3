@@ -17,12 +17,13 @@ export class EventService {
     data: Partial<Event>,
     file: Express.Multer.File
   ): Promise<Document<Event>> {
-    data.image = await this.fileUploadService.uploadPublicFile(
-      "review3",
-      file.buffer,
-      file.originalname,
-      file.mimetype
-    );
+    if (file)
+      data.image = await this.fileUploadService.uploadPublicFile(
+        "review3",
+        file.buffer,
+        file.originalname,
+        file.mimetype
+      );
     return await this.eventRepository.createEntity(data);
   }
 

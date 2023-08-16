@@ -17,7 +17,7 @@ export class Event {
   @Prop({ type: String, required: true })
   readonly description: string;
 
-  @Prop({ type: String, required: true })
+  @Prop({ type: String, required: false, default: null })
   image: string;
 
   @Prop({ type: Number, required: false, default: 0 })
