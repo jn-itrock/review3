@@ -7,6 +7,7 @@ export const environments = registerAs("config", () => {
     AWS_DEFAULT_REGION: process.env.AWS_DEFAULT_REGION,
     STORAGE_S3_BUCKET: process.env.STORAGE_S3_BUCKET,
     URL_IMAGES: process.env.URL_IMAGES,
+    DATABASE_URI: process.env.DATABASE_URI,
   };
 });
 
