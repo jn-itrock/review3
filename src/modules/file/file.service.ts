@@ -14,6 +14,7 @@ export class FileService {
     secretAccessKey?: string;
     region?: string;
   } = {};
+  private url: string;
   constructor(
     @Inject(environments.KEY)
     private readonly configService: ConfigType<typeof environments>
@@ -28,6 +29,7 @@ export class FileService {
     });
     this.bucketName = this.configService.STORAGE_S3_BUCKET;
     this.bucketS3 = new S3();
+    this.url = this.configService.URL_IMAGES;
   }
 
   async uploadPublicFile(
@@ -57,7 +59,7 @@ export class FileService {
         ContentType: mimeType,
       })
       .promise();
-    return uploadResult.Key;
+    return this.url + uploadResult.Key;
   }
 
   async uploadFile(

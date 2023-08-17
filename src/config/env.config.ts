@@ -6,6 +6,7 @@ export const environments = registerAs("config", () => {
     AWS_SECRET_KEY: process.env.AWS_SECRET_KEY,
     AWS_DEFAULT_REGION: process.env.AWS_DEFAULT_REGION,
     STORAGE_S3_BUCKET: process.env.STORAGE_S3_BUCKET,
+    URL_IMAGES: process.env.URL_IMAGES,
   };
 });
 
