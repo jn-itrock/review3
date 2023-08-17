@@ -12,6 +12,9 @@ export class Event {
   readonly lensId: string;
 
   @Prop({ type: String, required: true })
+  readonly poapEventId: string;
+
+  @Prop({ type: String, required: true })
   readonly title: string;
 
   @Prop({ type: String, required: true })

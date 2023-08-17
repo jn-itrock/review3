@@ -8,4 +8,8 @@ export class CreateEventDto {
   @IsNotEmpty()
   @IsString()
   description: string;
+
+  @IsNotEmpty()
+  @IsString()
+  poapEventId: string;
 }
